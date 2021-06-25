@@ -1,18 +1,25 @@
 import React from 'react'
-
 export default class ShowArticle extends React.Component {
     
     state = {
+        index: 0,
         title: null,
         textContent: [],
         imgContent: [],
-        listContent: []
+        listContent: [],
+        articles: [
+            'https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-1.json',
+            'https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-2.json',
+            'https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-3.json',
+            'https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-4.json',
+            'https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-5.json'
+        ],
     }
-    
     
 
     async componentDidMount(){
-        const url = 'https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-1.json';
+        
+        const url = this.state.articles[this.state.index];
         const response = await fetch(url);
         const data = await response.json();
         //console.log(data);
@@ -80,10 +87,9 @@ export default class ShowArticle extends React.Component {
 
         iterateTextObject(data)
         iterateImgObject(data)
-
         iterateListObject(data)
 
-        console.log(listElements)
+        //console.log(listElements)
         //console.log(listElements)
 
 
@@ -94,6 +100,15 @@ export default class ShowArticle extends React.Component {
         //console.log(articleElements)
 
         }
+
+
+        handleNext = () => {
+            this.setState({
+                index: this.state.index + 1
+            });
+            console.log(this.state.index)
+        };
+
 
         render(){
             const htmlTextElem = []
@@ -117,10 +132,26 @@ export default class ShowArticle extends React.Component {
                     {htmlTextElem}
                     {htmlImgElem}
                     {htmlListElem}
+
+                    <div>
+                    <button
+                     onClick={() => {
+                         this.setState({
+                             index: this.state.index - 1
+                         });
+                         console.log(this.state.index)
+                     }}>Back</button>
+
+                    <button onClick={this.handleNext}>Next</button>
+                    </div>
+
                     </div>
             )
             
             
         }
+
+
+
 
     }
