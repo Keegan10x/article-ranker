@@ -1,5 +1,5 @@
 import React from 'react'
-export default class ShowArticle extends React.Component {
+export default class WebArticle1 extends React.Component {
     
     state = {
         index: 0,
@@ -134,15 +134,7 @@ export default class ShowArticle extends React.Component {
                     {htmlListElem}
 
                     <div>
-                    <button
-                     onClick={() => {
-                         this.setState({
-                             index: this.state.index - 1
-                         });
-                         console.log(this.state.index)
-                     }}>Back</button>
-
-                    <button onClick={this.handleNext}>Next</button>
+                    
                     </div>
 
                     </div>

@@ -27,7 +27,6 @@ export default class RankArticle extends React.Component {
     render(){
         return(
             <div>
-            <hr></hr>
             <h1>Rank The Articles</h1>
             <form>
                 <label for="article1">Rank Article 1</label><br></br>
