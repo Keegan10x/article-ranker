@@ -127,17 +127,14 @@ export class WebArticle3 extends Component {
             }
 
             return(
-                    <div>
+                    <main>
                     <h1>{this.state.title}</h1>
+                    <article>
                     {htmlTextElem}
                     {htmlImgElem}
                     {htmlListElem}
-
-                    <div>
-                    
-                    </div>
-
-                    </div>
+                    </article>
+                    </main>
             )
             
             

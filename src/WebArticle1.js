@@ -78,7 +78,6 @@ export default class WebArticle1 extends React.Component {
                         listElements.push(elem)
                     }
                 }
-                
             }
         }
 
@@ -127,17 +126,14 @@ export default class WebArticle1 extends React.Component {
             }
 
             return(
-                    <div>
+                    <main>
                     <h1>{this.state.title}</h1>
+                    <article>
                     {htmlTextElem}
                     {htmlImgElem}
                     {htmlListElem}
-
-                    <div>
-                    
-                    </div>
-
-                    </div>
+                    </article>
+                    </main>
             )
             
             

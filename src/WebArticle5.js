@@ -77,8 +77,7 @@ export class WebArticle5 extends Component {
                     for(let elem of obj[prop]){
                         listElements.push(elem)
                     }
-                }
-                
+                }  
             }
         }
 
@@ -127,17 +126,14 @@ export class WebArticle5 extends Component {
             }
 
             return(
-                    <div>
+                    <main>
                     <h1>{this.state.title}</h1>
+                    <article>
                     {htmlTextElem}
                     {htmlImgElem}
                     {htmlListElem}
-
-                    <div>
-                    
-                    </div>
-
-                    </div>
+                    </article>
+                    </main>
             )
             
             

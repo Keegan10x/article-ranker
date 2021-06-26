@@ -28,23 +28,25 @@ class App extends Component {
   }
   
   render(){
+
+    // Renders article 1 and back/next buttons
     if (this.state.showingComponent === "WebArticle1"){
       return(
-        <div>
+        <main>
           <WebArticle1/><br></br>
           <button
             onClick={ () => {
               this.setState({ showingComponent: "WebArticle2" })
             }}
           >Next</button>
-        </div>
+        </main>
       )
     }
     
-
+    // Renders article 2 and back/next buttons
     if (this.state.showingComponent === "WebArticle2"){
       return(
-        <div>
+        <main>
           <WebArticle2/><br></br>
           
           <button
@@ -58,13 +60,14 @@ class App extends Component {
               this.setState({ showingComponent: "WebArticle3" })
             }}
           >Next</button>
-        </div>
+        </main>
       )
     }
 
+    // Renders article 3 and back/next buttons
     if (this.state.showingComponent === "WebArticle3"){
       return(
-        <div>
+        <main>
           <WebArticle3/><br></br>
 
           <button
@@ -78,13 +81,14 @@ class App extends Component {
               this.setState({ showingComponent: "WebArticle4" })
             }}
           >Next</button>
-        </div>
+        </main>
       )
     }
 
+    // Renders article 4 and back/next buttons
     if (this.state.showingComponent === "WebArticle4"){
       return(
-        <div>
+        <main>
           <WebArticle4/><br></br>
 
           <button
@@ -98,13 +102,14 @@ class App extends Component {
               this.setState({ showingComponent: "WebArticle5" })
             }}
           >Next</button>
-        </div>
+        </main>
       )
     }
 
+    // Renders article 5 and back/rank buttons
     if (this.state.showingComponent === "WebArticle5"){
       return(
-        <div>
+        <main>
           <WebArticle5/><br></br>
 
           <button
@@ -118,14 +123,15 @@ class App extends Component {
               this.setState({ showingComponent: "RankArticle" })
             }}
           >Next</button>
-        </div>
+        </main>
       )
     }
 
+    // Renders ranking HTML from and back/home buttons
     if (this.state.showingComponent === "RankArticle"){
       return(
-        <div>
-          <div><RankArticle onSubmit={fields => this.onSubmit(fields)}/></div>
+        <main>
+          <RankArticle onSubmit={fields => this.onSubmit(fields)}/>
           <p>{JSON.stringify(this.state.fields, null, 2)}</p>
 
           <button
@@ -134,15 +140,16 @@ class App extends Component {
             }}
           >Back</button>
 
-          <div>
+          
             <h2>Back To Article 1</h2>
           <button
             onClick={ () => {
               this.setState({ showingComponent: "WebArticle1" })
             }}
           >Home</button>
-          </div>
-        </div>
+          
+
+        </main>
         
       )
     }

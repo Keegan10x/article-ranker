@@ -26,9 +26,11 @@ export default class RankArticle extends React.Component {
 
     render(){
         return(
-            <div>
+            <main>
             <h1>Rank The Articles</h1>
             <form>
+                
+                <hr></hr>
                 <label for="article1">Rank Article 1</label><br></br>
                 0<input type="range" name="article1_rank" value={this.state.article1_rank} min="0" max="5"
                 onChange={event => this.change(event)}/>5
@@ -58,7 +60,7 @@ export default class RankArticle extends React.Component {
                 <button onClick={(event) => this.onSubmit(event)}>Submit</button>
 
             </form>
-            </div>
+            </main>
         )
     }
 
