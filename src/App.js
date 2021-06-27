@@ -32,23 +32,33 @@ class App extends Component {
     // Renders article 1 and back/next buttons
     if (this.state.showingComponent === "WebArticle1"){
       return(
+        <html>
         <main>
-          <WebArticle1/><br></br>
+          <WebArticle1/>
+        </main>
+          
+        <nav>
           <button
             onClick={ () => {
               this.setState({ showingComponent: "WebArticle2" })
             }}
           >Next</button>
-        </main>
+        </nav>
+
+        </html>
       )
     }
     
     // Renders article 2 and back/next buttons
     if (this.state.showingComponent === "WebArticle2"){
       return(
-        <main>
-          <WebArticle2/><br></br>
-          
+        <html>
+
+          <main>
+          <WebArticle2/>
+          </main>
+
+          <nav>
           <button
             onClick={ () => {
               this.setState({ showingComponent: "WebArticle1" })
@@ -60,16 +70,22 @@ class App extends Component {
               this.setState({ showingComponent: "WebArticle3" })
             }}
           >Next</button>
-        </main>
+          </nav>
+
+        </html>
       )
     }
 
     // Renders article 3 and back/next buttons
     if (this.state.showingComponent === "WebArticle3"){
       return(
-        <main>
-          <WebArticle3/><br></br>
+        <html>
 
+          <main>
+          <WebArticle3/>
+          </main>
+
+          <nav>
           <button
             onClick={ () => {
               this.setState({ showingComponent: "WebArticle2" })
@@ -81,16 +97,23 @@ class App extends Component {
               this.setState({ showingComponent: "WebArticle4" })
             }}
           >Next</button>
-        </main>
+          </nav>
+
+        </html>
       )
     }
 
     // Renders article 4 and back/next buttons
     if (this.state.showingComponent === "WebArticle4"){
       return(
-        <main>
-          <WebArticle4/><br></br>
+        <html>
+          
+          
+          <main>
+          <WebArticle4/>
+          </main>
 
+          <nav>
           <button
             onClick={ () => {
               this.setState({ showingComponent: "WebArticle3" })
@@ -102,16 +125,22 @@ class App extends Component {
               this.setState({ showingComponent: "WebArticle5" })
             }}
           >Next</button>
-        </main>
+          </nav>
+
+        </html>
       )
     }
 
     // Renders article 5 and back/rank buttons
     if (this.state.showingComponent === "WebArticle5"){
       return(
-        <main>
-          <WebArticle5/><br></br>
+        <html>
 
+          <main>
+          <WebArticle5/>
+          </main>
+
+          <nav>
           <button
             onClick={ () => {
               this.setState({ showingComponent: "WebArticle4" })
@@ -123,33 +152,40 @@ class App extends Component {
               this.setState({ showingComponent: "RankArticle" })
             }}
           >Next</button>
-        </main>
+          </nav>
+
+        </html>
       )
     }
 
     // Renders ranking HTML from and back/home buttons
     if (this.state.showingComponent === "RankArticle"){
       return(
-        <main>
-          <RankArticle onSubmit={fields => this.onSubmit(fields)}/>
-          <p>{JSON.stringify(this.state.fields, null, 2)}</p>
+        <html>
 
+          
+          <RankArticle onSubmit={fields => this.onSubmit(fields)}/>
+          <br></br>
+          <section>
+            <p>Output to database</p>
+            <p>{JSON.stringify(this.state.fields, null, 2)}</p>
+          </section>
+          
+          <nav>
           <button
             onClick={ () => {
               this.setState({ showingComponent: "WebArticle5" })
             }}
           >Back</button>
 
-          
-            <h2>Back To Article 1</h2>
           <button
             onClick={ () => {
               this.setState({ showingComponent: "WebArticle1" })
             }}
           >Home</button>
-          
+          </nav>
 
-        </main>
+        </html>
         
       )
     }

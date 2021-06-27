@@ -14,6 +14,7 @@ export class WebArticle4 extends Component {
             'https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-4.json',
             'https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-5.json'
         ],
+        alternateText: "A random pricture from the internet"
     }
     
 
@@ -101,13 +102,6 @@ export class WebArticle4 extends Component {
         }
 
 
-        handleNext = () => {
-            this.setState({
-                index: this.state.index + 1
-            });
-            console.log(this.state.index)
-        };
-
 
         render(){
             const htmlTextElem = []
@@ -117,7 +111,14 @@ export class WebArticle4 extends Component {
 
             const htmlImgElem = []
             for (const item of this.state.imgContent){
-                htmlImgElem.push(<img src={item} width='640' height='420' alt="random"/>)
+                htmlImgElem.push(
+                <div>
+                <figure>
+                <img src={item} alt={this.state.alternateText}/>
+                </figure>
+                <br></br>
+                </div>
+                )
             }
 
             const htmlListElem = []
@@ -127,10 +128,10 @@ export class WebArticle4 extends Component {
 
             return(
                     <main>
-                    <h1>{this.state.title}</h1>
+                    <h1>{this.state.title}</h1><hr></hr>
                     <article>
-                    {htmlTextElem}
-                    {htmlImgElem}
+                    {htmlTextElem}<hr></hr>
+                    {htmlImgElem}<hr></hr>
                     {htmlListElem}
                     </article>
                     </main>

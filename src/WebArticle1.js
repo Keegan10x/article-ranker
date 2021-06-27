@@ -14,6 +14,7 @@ export default class WebArticle1 extends React.Component {
             'https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-4.json',
             'https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-5.json'
         ],
+        alternateText: "A random pricture from the internet"
     }
     
 
@@ -101,14 +102,6 @@ export default class WebArticle1 extends React.Component {
         }
 
 
-        handleNext = () => {
-            this.setState({
-                index: this.state.index + 1
-            });
-            console.log(this.state.index)
-        };
-
-
         render(){
             const htmlTextElem = []
             for (const item of this.state.textContent){
@@ -117,7 +110,14 @@ export default class WebArticle1 extends React.Component {
 
             const htmlImgElem = []
             for (const item of this.state.imgContent){
-                htmlImgElem.push(<img src={item} width='640' height='420' alt="random"/>)
+                htmlImgElem.push(
+                <div>
+                <figure>
+                <img src={item} alt={this.state.alternateText}/>
+                </figure>
+                <br></br>
+                </div>
+                )
             }
 
             const htmlListElem = []
@@ -127,10 +127,10 @@ export default class WebArticle1 extends React.Component {
 
             return(
                     <main>
-                    <h1>{this.state.title}</h1>
+                    <h1>{this.state.title}</h1><hr></hr>
                     <article>
-                    {htmlTextElem}
-                    {htmlImgElem}
+                    {htmlTextElem}<hr></hr>
+                    {htmlImgElem}<hr></hr>
                     {htmlListElem}
                     </article>
                     </main>
