@@ -14,17 +14,29 @@ export class WebArticle3 extends Component {
             'https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-4.json',
             'https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-5.json'
         ],
-        alternateText: "A random pricture from the internet"
+        alternateText: "A random pricture from an api",
+        loading: true
     }
     
 
     async componentDidMount(){
         
-        const url = this.state.articles[this.state.index];
-        const response = await fetch(url);
-        const data = await response.json();
-        //console.log(data);
+        let data = { }
+
+        try {
+            const url = this.state.articles[this.state.index];
+            const response = await fetch(url);
+            data = await response.json();
+            //console.log(data); 
+        }
+        catch(err) {
+            data = {
+                title: "There was an error in getting data from the server",
+            }
+        }   
         
+        
+
         this.setState({ title: data.title});
         //console.log(data.body)
 
@@ -97,6 +109,8 @@ export class WebArticle3 extends Component {
         this.setState({ textContent: textElements})
         this.setState({ imgContent: imgElements})
         this.setState({ listContent: listElements})
+
+        this.setState({ loading: false})
         //console.log("loggin array")
         //console.log(articleElements)
 
@@ -125,6 +139,10 @@ export class WebArticle3 extends Component {
             for (const item of this.state.listContent){
                 htmlImgElem.push(<li>{item}</li>)
             }
+
+            //if (this.state.loading){
+            //    return <main><h1>LOADING...</h1></main>
+            //}
 
             return(
                     <main>

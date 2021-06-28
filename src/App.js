@@ -1,6 +1,6 @@
 
-import React, { Component } from 'react';
 import './App.css';
+import React, { Component } from 'react';
 import WebArticle1 from './WebArticle1'
 import RankArticle from './RankArticle'
 
