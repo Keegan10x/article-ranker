@@ -147,14 +147,12 @@ export default class WebArticle1 extends React.Component {
             //}
 
             return( 
-                    <main>
-                    <h1>{this.state.title}</h1><hr></hr>
                     <article>
+                    <h1>{this.state.title}</h1><hr></hr>
                     {htmlTextElem}<hr></hr>
                     {htmlImgElem}<hr></hr>
                     {htmlListElem}
                     </article>
-                    </main>
             )
             
             

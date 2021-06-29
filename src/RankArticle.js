@@ -26,8 +26,7 @@ export default class RankArticle extends React.Component {
 
     render(){
         return(
-            <main>
-            
+                     
             <form>
                 <h1>Rank The Articles</h1>
                 
@@ -59,7 +58,7 @@ export default class RankArticle extends React.Component {
 
                 <button onClick={(event) => this.onSubmit(event)}>Submit</button>
             </form>
-            </main>
+            
         )
     }
 

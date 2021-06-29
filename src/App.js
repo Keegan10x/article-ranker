@@ -32,10 +32,11 @@ class App extends Component {
     // Renders article 1 and back/next buttons
     if (this.state.showingComponent === "WebArticle1"){
       return(
-        <html>
         <main>
+        
+          
           <WebArticle1/>
-        </main>
+          
           
         <nav>
           <button
@@ -45,18 +46,18 @@ class App extends Component {
           >Next</button>
         </nav>
 
-        </html>
+        </main>
       )
     }
     
     // Renders article 2 and back/next buttons
     if (this.state.showingComponent === "WebArticle2"){
       return(
-        <html>
+        <main>
 
-          <main>
+          
           <WebArticle2/>
-          </main>
+          
 
           <nav>
           <button
@@ -72,18 +73,18 @@ class App extends Component {
           >Next</button>
           </nav>
 
-        </html>
+        </main>
       )
     }
 
     // Renders article 3 and back/next buttons
     if (this.state.showingComponent === "WebArticle3"){
       return(
-        <html>
+        <main>
 
-          <main>
+          
           <WebArticle3/>
-          </main>
+          
 
           <nav>
           <button
@@ -99,19 +100,17 @@ class App extends Component {
           >Next</button>
           </nav>
 
-        </html>
+        </main>
       )
     }
 
     // Renders article 4 and back/next buttons
     if (this.state.showingComponent === "WebArticle4"){
       return(
-        <html>
+        <main>
           
-          
-          <main>
           <WebArticle4/>
-          </main>
+          
 
           <nav>
           <button
@@ -127,18 +126,17 @@ class App extends Component {
           >Next</button>
           </nav>
 
-        </html>
+        </main>
       )
     }
 
     // Renders article 5 and back/rank buttons
     if (this.state.showingComponent === "WebArticle5"){
       return(
-        <html>
+        <main>
 
-          <main>
           <WebArticle5/>
-          </main>
+          
 
           <nav>
           <button
@@ -154,15 +152,14 @@ class App extends Component {
           >Next</button>
           </nav>
 
-        </html>
+        </main>
       )
     }
 
     // Renders ranking HTML from and back/home buttons
     if (this.state.showingComponent === "RankArticle"){
       return(
-        <html>
-
+        <div>
           
           <RankArticle onSubmit={fields => this.onSubmit(fields)}/>
           <br></br>
@@ -185,7 +182,7 @@ class App extends Component {
           >Home</button>
           </nav>
 
-        </html>
+        </div>
         
       )
     }

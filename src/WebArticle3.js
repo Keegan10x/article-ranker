@@ -145,14 +145,12 @@ export class WebArticle3 extends Component {
             //}
 
             return(
-                    <main>
-                    <h1>{this.state.title}</h1><hr></hr>
-                    <article>
-                    {htmlTextElem}<hr></hr>
-                    {htmlImgElem}
-                    {htmlListElem}
-                    </article>
-                    </main>
+                <article>
+                <h1>{this.state.title}</h1><hr></hr>
+                {htmlTextElem}<hr></hr>
+                {htmlImgElem}<hr></hr>
+                {htmlListElem}
+                </article>
             )
             
             
