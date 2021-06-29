@@ -11,7 +11,7 @@ import {WebArticle3} from './WebArticle3'
 import {WebArticle4} from './WebArticle4'
 import {WebArticle5} from './WebArticle5'
 
-
+console.log("Logging React Version: ", React.version)
 
 //import { render } from '@testing-library/react';
 
