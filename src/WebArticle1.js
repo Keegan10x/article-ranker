@@ -1,6 +1,9 @@
 import React from 'react'
 export default class WebArticle1 extends React.Component {
     
+    //set state to hold the article contetns
+    //the article index
+    //and loading status
     state = {
         index: 0,
         title: null,
@@ -18,18 +21,19 @@ export default class WebArticle1 extends React.Component {
         loading: true
     }
     
-
     async componentDidMount(){
         
-        
         let data = { }
-
+        //tries to fetch data from url and parse to json
+        //if sucessfull, the object is assigned to data
         try {
             const url = this.state.articles[this.state.index];
             const response = await fetch(url);
             data = await response.json();
             //console.log(data); 
         }
+
+        //if unsucessful, error text is added to empty object
         catch(err) {
             data = {
                 title: "There was an error in getting data from the server",
@@ -38,10 +42,11 @@ export default class WebArticle1 extends React.Component {
         
         this.setState({ title: data.title});
         //console.log(data.body)
-
         
-        let textElements = []
+
         //function for getting text items
+        //traverses the object an returns relevant text data
+        let textElements = []
         function iterateTextObject(obj){
             for( let prop in obj){
                 if(typeof(obj[prop]) === "object"){
@@ -56,9 +61,9 @@ export default class WebArticle1 extends React.Component {
             }
         }
         
-
-        let imgElements = []
         //function for getting image items
+        //traverses the object an returns relevant image data
+        let imgElements = []
         function iterateImgObject(obj){
             for( let prop in obj){
                 if(typeof(obj[prop]) === "object"){
@@ -73,9 +78,10 @@ export default class WebArticle1 extends React.Component {
             }
         }
 
-
-        let listElements = []
+        
         //function for getting list items
+        //traverses the object an returns relevant list data
+        let listElements = []
         function iterateListObject(obj){
             for( let prop in obj){
                 //console.log(obj[prop])
@@ -95,35 +101,32 @@ export default class WebArticle1 extends React.Component {
 
         
 
-
+        //calls these functions on the article data object
+        //sifts for relevant data
         iterateTextObject(data)
         iterateImgObject(data)
         iterateListObject(data)
 
-        //console.log(listElements)
-        //console.log(listElements)
-
-
+        //changes the state to corespond to the relevant article data
         this.setState({ textContent: textElements})
         this.setState({ imgContent: imgElements})
         this.setState({ listContent: listElements})
-        
-        
-        //console.log("loggin array")
-        //console.log(articleElements)
-
-
-
+             
+        //once data is obtained and set, loading state is set to false
         this.setState({ loading: false})
         }
 
         
         render(){
+
+            //takes the paragraph data in the state and adds p tags to them
             const htmlTextElem = []
             for (const item of this.state.textContent){
                 htmlTextElem.push(<p>{item}</p>)
             }
 
+            //takes the url data in the state and adds img tags to them
+            //also gives them an alt text attribute
             const htmlImgElem = []
             for (const item of this.state.imgContent){
                 htmlImgElem.push(
@@ -136,16 +139,18 @@ export default class WebArticle1 extends React.Component {
                 )
             }
 
+            //takes the list data in the state and adds li tags to them
             const htmlListElem = []
             for (const item of this.state.listContent){
                 htmlImgElem.push(<li>{item}</li>)
             }
             
-
+            //uncomment to enable loading screen
             //if (this.state.loading){
             //    return <main><h1>LOADING...</h1></main>
             //}
 
+            //returns the data in a formatted article
             return( 
                     <article>
                     <h1>{this.state.title}</h1><hr></hr>

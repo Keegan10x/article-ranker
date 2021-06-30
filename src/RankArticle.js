@@ -1,6 +1,9 @@
 import React from 'react';
 
 export default class RankArticle extends React.Component {
+
+    //define state to store form values.
+    //by default, ranks are set to 0
     state = {
         article1_rank: 0,
         article2_rank: 0,
@@ -9,21 +12,21 @@ export default class RankArticle extends React.Component {
         article5_rank: 0
     }
 
-
+    //redundant
     change = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
     } 
 
-
+    //on submit function to pass update state containg form data
     onSubmit = (event) => {
         event.preventDefault()
         this.props.onSubmit(this.state)
         //console.log(this.state)
     }
 
-
+    //renders a form with 5 sliders and dynamically changing value for each slider
     render(){
         return(
                      
@@ -61,8 +64,6 @@ export default class RankArticle extends React.Component {
             
         )
     }
-
-
 
 
 }
